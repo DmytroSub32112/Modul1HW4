@@ -6,16 +6,17 @@ namespace HW4
     {
         public static void Main(string[] args)
         {
+            Console.WriteLine("Enter the length of the array");
             var index = Console.ReadLine();
             var result = int.TryParse(index, out var number);
             if (result == true)
             {
-                Console.WriteLine("Вы ввели число");
+                Console.WriteLine("You entered a number");
             }
 
             if (result == false)
             {
-                Console.WriteLine("Програма не начнет свое выполнение,пока не будет введено число");
+                Console.WriteLine("The program will not start executing until a number is entered.");
             }
 
             Console.WriteLine("-------------------------");
@@ -28,8 +29,8 @@ namespace HW4
                 arr[i] = new Random().Next(1, 26);
             }
 
-            var oddArr = new int[arr.Length];
-            var honestArr = new int[arr.Length];
+            var oddArr = new int?[arr.Length];
+            var evenArr = new int?[arr.Length];
             foreach (var item in arr)
             {
                 Console.WriteLine(item);
@@ -40,7 +41,7 @@ namespace HW4
             {
                 if (arr[i] % 2 == 0)
                 {
-                    honestArr[length] = arr[i];
+                    evenArr[length] = arr[i];
 
                     length++;
                 }
@@ -51,21 +52,21 @@ namespace HW4
                 }
             }
 
-            Console.WriteLine("Масив c четными значениями");
-            foreach (var item in honestArr)
+            Console.WriteLine("Array with even values");
+            foreach (var item in evenArr)
             {
                 Console.WriteLine(item);
             }
 
-            Console.WriteLine("Масив c нечетными значениями");
+            Console.WriteLine("Array with odd values");
             foreach (var item in oddArr)
             {
                 Console.WriteLine(item);
             }
 
-            Console.WriteLine("Меняем цифры на буквы");
+            Console.WriteLine("Change numbers to letters");
             var strArr1 = string.Empty;
-            foreach (var item in honestArr)
+            foreach (var item in evenArr)
             {
                 for (var i = 0; i < str.Length; i++)
                 {
@@ -77,14 +78,14 @@ namespace HW4
                 }
             }
 
-            Console.WriteLine("четные буквы");
+            Console.WriteLine("even letters");
             foreach (var item in strArr1)
             {
                 Console.Write(item);
             }
 
             Console.WriteLine();
-            Console.WriteLine("нечетные буквы");
+            Console.WriteLine("odd letters");
             var strArr2 = string.Empty;
             foreach (var item in oddArr)
             {
@@ -108,13 +109,13 @@ namespace HW4
             strArr1 = strArr1.Replace('d', 'D');
             strArr1 = strArr1.Replace('h', 'H');
             strArr1 = strArr1.Replace('j', 'J');
-            Console.WriteLine("Выводим четные буквы с символами в верхнем регистре");
+            Console.WriteLine("Display even letters with uppercase characters");
             Console.WriteLine(strArr1);
 
             strArr2 = strArr2.Replace('a', 'A');
             strArr2 = strArr2.Replace('e', 'E');
             strArr2 = strArr2.Replace('i', 'I');
-            Console.WriteLine("Выводим нечетные буквы с символами в верхнем регистре");
+            Console.WriteLine("Display odd letters with uppercase characters");
             Console.WriteLine(strArr2);
             var value1 = 0;
             var value2 = 0;
@@ -134,22 +135,22 @@ namespace HW4
                 }
             }
 
-            Console.WriteLine("Выводим масив  с большем количеством символов в верхнем регистре ");
+            Console.WriteLine("Output an array with more uppercase characters ");
             if (value1 > value2)
             {
-                Console.WriteLine("Четный масив");
+                Console.WriteLine("Even array");
                 Console.WriteLine(strArr1);
             }
 
             if (value1 < value2)
             {
-                Console.WriteLine("Нечетный масив");
+                Console.WriteLine("odd array");
                 Console.WriteLine(strArr2);
             }
 
             if (value1 == value2)
             {
-                Console.WriteLine("количество символов в верхнем регистре одинаково");
+                Console.WriteLine("the number of uppercase characters is the same");
                 Console.WriteLine(strArr1);
                 Console.WriteLine(strArr2);
             }
